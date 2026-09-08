@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://esm.sh; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://cdn.simpleicons.org https://files.catbox.moe data:; connect-src 'self' https://esm.sh; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Alif Rezky, Developer &amp; Designer</title>
+<meta name="description" content="Alif Rezky. Software developer dan UI/UX designer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,600;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+<div id="loadingScreen" role="status" aria-label="Memuat halaman">
+  <div class="speeder-loader">
+    <span>
+      <span></span><span></span><span></span><span></span>
+    </span>
+    <div class="speeder-base"><span></span></div>
+    <div class="speeder-face"></div>
+  </div>
+  <div class="speeder-fazers">
+    <span></span><span></span><span></span><span></span>
+  </div>
+</div>
+
+<nav class="site-nav" id="siteNav">
+  <a href="#top" class="nav-mark">
+    Alif Rezky
+    <svg class="verified-badge" viewBox="0 0 22 22" fill="none" aria-label="Terverifikasi" role="img">
+      <path d="M11 1.6 13.2 3.4 16 3 16.8 5.8 19.6 6.6 19.2 9.4 21 11.6 19.2 13.8 19.6 16.6 16.8 17.4 16 20.2 13.2 19.8 11 21.6 8.8 19.8 6 20.2 5.2 17.4 2.4 16.6 2.8 13.8 1 11.6 2.8 9.4 2.4 6.6 5.2 5.8 6 3 8.8 3.4Z" fill="var(--accent)"/>
+      <path d="M7.4 11.2 9.8 13.6 14.8 8.4" stroke="#04101a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about" data-i18n="nav_about">Tentang</a></li>
+    <li><a href="#location" data-i18n="nav_location">Lokasi</a></li>
+    <li><a href="#skills" data-i18n="nav_skills">Keahlian</a></li>
+    <li><a href="#work" data-i18n="nav_work">Karya</a></li>
+    <li><a href="#hobby" data-i18n="nav_hobby">Hobi</a></li>
+    <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
+    <li><a href="#contact" data-i18n="nav_contact">Kontak</a></li>
+  </ul>
+  <div class="nav-right">
+    <button type="button" class="search-toggle" id="searchToggle" aria-label="Cari">
+      <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="8.8" cy="8.8" r="5.8" stroke="currentColor" stroke-width="1.5"/><path d="M17 17l-4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <button type="button" class="music-toggle" id="musicToggle" aria-pressed="false" aria-label="Putar musik latar">
+      <svg class="music-icon-on" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7 15.2a2.2 2.2 0 1 1 0-4.4 2.2 2.2 0 0 1 0 4.4Z" stroke="currentColor" stroke-width="1.4"/><path d="M9.2 12.8V4.6l7-1.4v8.2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 12.8a2.2 2.2 0 1 1 2.2-2.2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <svg class="music-icon-off" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7 15.2a2.2 2.2 0 1 1 0-4.4 2.2 2.2 0 0 1 0 4.4Z" stroke="currentColor" stroke-width="1.4"/><path d="M9.2 12.8V4.6l7-1.4v5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 3.5 16.5 16.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </button>
+    <div class="lang-toggle" role="group" aria-label="Bahasa">
+      <button type="button" id="langId" class="active" aria-pressed="true">ID</button>
+      <button type="button" id="langEn" aria-pressed="false">EN</button>
+    </div>
+    <button type="button" class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 4H15M1 8H15M1 12H15" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="search-overlay" id="searchOverlay" aria-hidden="true">
+  <div class="search-panel" role="dialog" aria-modal="true" aria-label="Pencarian">
+    <div class="search-head">
+      <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="8.8" cy="8.8" r="5.8" stroke="currentColor" stroke-width="1.5"/><path d="M17 17l-4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <input type="text" id="searchInput" data-i18n-placeholder="search_placeholder" placeholder="Cari section, skill, atau proyek...">
+      <button type="button" id="searchClose" aria-label="Tutup pencarian">
+        <svg viewBox="0 0 16 16" fill="none"><path d="M2 2l12 12M14 2 2 14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <div class="search-body" id="searchBody">
+      <p class="search-hint" id="searchHint" data-i18n="search_hint">Ketik lalu tekan Enter untuk mencari.</p>
+
+      <div class="search-loading" id="searchLoading" hidden>
+        <div class="walker-loader">
+          <svg class="legl" viewBox="0,0,20.69332,68.19944" width="20.69332" height="68.19944"><g transform="translate(-201.44063,-235.75466)"><path d="M218.11971,301.20087c-2.20708,1.73229 -4.41416,0 -4.41416,0l-1.43017,-1.1437c-1.42954,-1.40829 -3.04351,-2.54728 -4.56954,-3.87927c-0.95183,-0.8308 -2.29837,-1.49883 -2.7652,-2.55433c-0.42378,-0.95815 0.14432,-2.02654 0.29355,-3.03399c0.41251,-2.78499 1.82164,-5.43386 2.41472,-8.22683c1.25895,-4.44509 2.73863,-8.98683 3.15318,-13.54796c0.22615,-2.4883 -0.21672,-5.0155 -0.00278,-7.50605c0.30636,-3.56649 1.24602,-7.10406 1.59992,-10.6738c0.29105,-2.93579 -0.00785,-5.9806 -0.00785,-8.93046c0,0 0,-2.44982 3.12129,-2.44982c3.12129,0 3.12129,2.44982 3.12129,2.44982c0,3.06839 0.28868,6.22201 -0.00786,9.27779c-0.34637,3.56935 -1.30115,7.10906 -1.59992,10.6738c-0.2103,2.50918 0.22586,5.05326 -0.00278,7.56284c-0.43159,4.7371 -1.94029,9.46317 -3.24651,14.07835c-0.47439,2.23403 -1.29927,4.31705 -2.05805,6.47156c-0.18628,0.52896 -0.1402,1.0974 -0.327,1.62624c-0.09463,0.26791 -0.64731,0.47816 -0.50641,0.73323c0.19122,0.34617 0.86423,0.3445 1.2346,0.58502c1.88637,1.22503 3.50777,2.79494 5.03,4.28305l0.96971,0.73991c0,0 2.20708,1.73229 0,3.46457z" fill="none" stroke="#4f9dff" stroke-width="7"></path></g></svg>
+          <svg class="legr" viewBox="0,0,41.02537,64.85502" width="41.02537" height="64.85502"><g transform="translate(-241.54137,-218.44347)"><path d="M279.06674,279.42662c-2.27967,1.98991 -6.08116,0.58804 -6.08116,0.58804l-2.47264,-0.92915c-2.58799,-1.18826 -5.31176,-2.08831 -7.99917,-3.18902c-1.67622,-0.68654 -3.82471,-1.16116 -4.93147,-2.13229c-1.00468,-0.88156 -0.69132,-2.00318 -0.92827,-3.00935c-0.65501,-2.78142 0.12275,-5.56236 -0.287,-8.37565c-0.2181,-4.51941 -0.17458,-9.16283 -1.60696,-13.68334c-0.78143,-2.46614 -2.50162,-4.88125 -3.30086,-7.34796c-1.14452,-3.53236 -1.40387,-7.12078 -2.48433,-10.66266c-0.88858,-2.91287 -2.63779,-5.85389 -3.93351,-8.74177c0,0 -1.07608,-2.39835 3.22395,-2.81415c4.30003,-0.41581 2.41605,1.98254 2.41605,1.98254c1.34779,3.00392 3.13072,6.05282 4.06444,9.0839c1.09065,3.54049 1.33011,7.13302 2.48433,10.66266c0.81245,2.48448 2.5308,4.917 3.31813,7.40431c1.48619,4.69506 1.48366,9.52281 1.71137,14.21503c0.32776,2.25028 0.10631,4.39942 0.00736,6.60975c-0.02429,0.54266 0.28888,1.09302 0.26382,1.63563c-0.01269,0.27488 -0.68173,0.55435 -0.37558,0.78529c0.41549,0.31342 1.34191,0.22213 1.95781,0.40826c3.13684,0.94799 6.06014,2.26892 8.81088,3.52298l1.66093,0.59519c0,0 6.76155,1.40187 4.48187,3.39177z" fill="none" stroke="#1a3a63" stroke-width="7"></path></g></svg>
+          <div class="walker-bod">
+            <svg viewBox="0,0,144.10576,144.91623" width="144.10576" height="144.91623"><g transform="translate(-164.41679,-112.94712)">
+              <path d="M166.9168,184.02633c0,-36.49454 35.0206,-66.07921 72.05288,-66.07921c37.03228,0 67.05288,29.58467 67.05288,66.07921c0,6.94489 -1.08716,13.63956 -3.10292,19.92772c-2.71464,8.46831 -7.1134,16.19939 -12.809,22.81158c-2.31017,2.68194 -7.54471,12.91599 -7.54471,12.91599c0,0 -5.46714,-1.18309 -8.44434,0.6266c-3.86867,2.35159 -10.95356,10.86714 -10.95356,10.86714c0,0 -6.96906,-3.20396 -9.87477,-2.58085c-2.64748,0.56773 -6.72538,5.77072 -6.72538,5.77072c0,0 -5.5023,-4.25969 -7.5982,-4.25969c-3.08622,0 -9.09924,3.48259 -9.09924,3.48259c0,0 -6.0782,-5.11244 -9.00348,-5.91884c-4.26461,-1.17561 -12.23343,0.75049 -12.23343,0.75049c0,0 -5.18164,-8.26065 -7.60688,-9.90388c-3.50443,-2.37445 -8.8271,-3.95414 -8.8271,-3.95414c0,0 -5.33472,-8.81718 -7.27019,-11.40895c-4.81099,-6.44239 -13.46422,-9.83437 -15.65729,-17.76175c-1.53558,-5.55073 -2.35527,-21.36472 -2.35527,-21.36472z" fill="#12203a" stroke="#4f9dff" stroke-width="5"></path>
+              <path d="M167.94713,180c0,-37.03228 35.0206,-67.05288 72.05288,-67.05288c37.03228,0 67.05288,30.0206 67.05288,67.05288c0,7.04722 -1.08716,13.84053 -3.10292,20.22135c-2.71464,8.59309 -7.1134,16.43809 -12.809,23.14771c-2.31017,2.72146 -7.54471,13.1063 -7.54471,13.1063c0,0 -5.46714,-1.20052 -8.44434,0.63584c-3.86867,2.38624 -10.95356,11.02726 -10.95356,11.02726c0,0 -6.96906,-3.25117 -9.87477,-2.61888c-2.64748,0.5761 -6.72538,5.85575 -6.72538,5.85575c0,0 -5.5023,-4.32246 -7.5982,-4.32246c-3.08622,0 -9.09924,3.5339 -9.09924,3.5339c0,0 -6.0782,-5.18777 -9.00348,-6.00605c-4.26461,-1.19293 -12.23343,0.76155 -12.23343,0.76155c0,0 -5.18164,-8.38236 -7.60688,-10.04981c-3.50443,-2.40943 -8.8271,-4.0124 -8.8271,-4.0124c0,0 -5.33472,-8.9471 -7.27019,-11.57706c-4.81099,-6.53732 -13.46422,-9.97928 -15.65729,-18.02347c-1.53558,-5.63252 -2.35527,-21.67953 -2.35527,-21.67953z" fill="#12203a" stroke="none"></path>
+            </g></svg>
+            <svg class="walker-head" viewBox="0,0,115.68559,88.29441" width="115.68559" height="88.29441"><g transform="translate(-191.87889,-75.62023)">
+              <path d="M195.12889,128.77752c0,-26.96048 21.33334,-48.81626 47.64934,-48.81626c26.316,0 47.64935,21.85578 47.64935,48.81626c0,0.60102 -9.22352,20.49284 -9.22352,20.49284l-7.75885,0.35623l-7.59417,6.15039l-8.64295,-1.74822l-11.70703,6.06119l-6.38599,-4.79382l-6.45999,2.36133l-7.01451,-7.38888l-8.11916,1.29382l-6.19237,-6.07265l-7.6263,-1.37795l-4.19835,-7.87062l-4.24236,-4.16907c0,0 -0.13314,-2.0999 -0.13314,-3.29458z" fill="none" stroke="#2b5486" stroke-width="6"></path>
+              <path d="M195.31785,124.43649c0,-26.96048 21.33334,-48.81626 47.64934,-48.81626c26.316,0 47.64935,21.85578 47.64935,48.81626c0,1.03481 -0.08666,2.8866 -0.08666,2.8866c0,0 16.8538,15.99287 16.21847,17.23929c-0.66726,1.30905 -23.05667,-4.14265 -23.05667,-4.14265l-2.29866,4.5096l-7.75885,0.35623l-7.59417,6.15039l-8.64295,-1.74822l-11.70703,6.06119l-6.38599,-4.79382l-6.45999,2.36133l-7.01451,-7.38888l-8.11916,1.29382l-6.19237,-6.07265l-7.6263,-1.37795l-4.19835,-7.87062l-4.24236,-4.16907c0,0 -0.13314,-2.0999 -0.13314,-3.29458z" fill="#12203a"></path>
+              <path d="M271.10348,122.46768l10.06374,-3.28166l24.06547,24.28424" fill="none" stroke="#2b5486" stroke-width="6" stroke-linecap="round"></path>
+              <path d="M306.56448,144.85764l-41.62024,-8.16845l2.44004,-7.87698" fill="none" stroke="#0a1220" stroke-width="3.5" stroke-linecap="round"></path>
+              <path d="M276.02738,115.72434c-0.66448,-4.64715 2.56411,-8.95308 7.21127,-9.61756c4.64715,-0.66448 8.95309,2.56411 9.61757,7.21126c0.46467,3.24972 -1.94776,8.02206 -5.96624,9.09336c-2.11289,-1.73012 -5.08673,-5.03426 -5.08673,-5.03426c0,0 -4.12095,1.16329 -4.60481,1.54229c-0.16433,-0.04891 -0.62732,-0.38126 -0.72803,-0.61269c-0.30602,-0.70328 -0.36302,-2.02286 -0.44303,-2.58239z" fill="#eef4ff"></path>
+              <path d="M242.49281,125.6424c0,-4.69442 3.80558,-8.5 8.5,-8.5c4.69442,0 8.5,3.80558 8.5,8.5c0,4.69442 -3.80558,8.5 -8.5,8.5c-4.69442,0 -8.5,-3.80558 -8.5,-8.5z" fill="#eef4ff"></path>
+            </g></svg>
+          </div>
+        </div>
+        <p class="search-loading-text" data-i18n="search_loading">Mencari...</p>
+      </div>
+
+      <ul class="search-results" id="searchResults" hidden></ul>
+    </div>
+  </div>
+</div>
+
+<audio id="bgAudio" loop preload="none">
+  <source src="assets/audio/theme.mp3" type="audio/mpeg">
+</audio>
+
+<div id="top"></div>
+
+<div class="hero-pin" id="heroPin">
+  <div class="hero-sticky">
+    <canvas id="sequence" aria-hidden="true"></canvas>
+    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="hero-copy" id="heroCopy">
+      <h1 class="hero-name visually-hidden" id="heroNameSr">Alif Rezky</h1>
+      <div class="particle-name" id="particleName" aria-hidden="true">
+        <canvas></canvas>
+      </div>
+      <p class="hero-role" data-i18n="hero_role">Membangun produk digital, dari kerangka teknis hingga detail antarmuka.</p>
+
+      <div class="hero-card-wrap" aria-hidden="true">
+        <div class="glass-card-parent">
+          <div class="glass-card">
+            <div class="glass"></div>
+
+            <div class="logo">
+              <div class="circle circle1"></div>
+              <div class="circle circle2"></div>
+              <div class="circle circle3"></div>
+              <div class="circle circle4"></div>
+              <div class="circle circle5">
+                <svg viewBox="0 0 24 24"><path d="M12 2L14.9 8.1L21 9L16.5 13.4L17.6 20L12 17L6.4 20L7.5 13.4L3 9L9.1 8.1L12 2Z"/></svg>
+              </div>
+            </div>
+
+            <div class="content">
+              <span class="title">Alif Rezky</span>
+              <span class="text" data-i18n="hero_card_text">Developer &amp; desainer produk digital.</span>
+            </div>
+
+            <div class="bottom">
+              <div class="social-buttons-container">
+                <a class="social-button" href="https://github.com/alrxf-dev" target="_blank" rel="noopener" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24"><path d="M12 .5A12 12 0 0 0 8.2 24c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.5-1.4-1.3-1.8-1.3-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6a4.7 4.7 0 0 1 1.2-3.3c-.1-.3-.5-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C16.5 4.7 17.5 5 17.5 5c.6 1.7.2 3 .1 3.3a4.7 4.7 0 0 1 1.2 3.3c0 4.7-2.8 5.7-5.5 6 .4.3.8 1 .8 2v3.2c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z"/></svg>
+                </a>
+                <a class="social-button" href="https://t.me/XploterAlrect" target="_blank" rel="noopener" aria-label="Telegram">
+                  <svg viewBox="0 0 24 24"><path d="M21.9 4.3 18.6 20c-.25 1.1-.9 1.37-1.83.86l-5.06-3.73-2.44 2.35c-.27.27-.5.5-1.02.5l.36-5.16 9.4-8.5c.41-.36-.09-.56-.63-.2L6.7 12.62l-5.03-1.57c-1.1-.34-1.12-1.1.23-1.63L20.5 2.9c.91-.34 1.71.2 1.4 1.4Z"/></svg>
+                </a>
+                <a class="social-button" href="https://wa.me/6282192401340" target="_blank" rel="noopener" aria-label="WhatsApp">
+                  <svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.29-.15-1.7-.84-1.96-.93-.26-.1-.46-.15-.65.14-.2.3-.75.94-.92 1.13-.17.2-.34.22-.63.08-.29-.15-1.23-.46-2.35-1.47-.87-.78-1.45-1.74-1.63-2.03-.17-.3-.02-.46.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.51-.08-.15-.65-1.58-.9-2.16-.24-.58-.48-.5-.65-.5h-.56c-.2 0-.51.07-.78.37-.26.3-1.02 1-1.02 2.43s1.05 2.82 1.19 3.01c.15.2 2.07 3.17 5.03 4.44.7.3 1.25.48 1.68.62.7.22 1.34.19 1.84.12.56-.08 1.7-.7 1.94-1.37.24-.68.24-1.26.17-1.38-.07-.12-.26-.2-.55-.34z"/><path d="M12.02 2C6.5 2 2 6.48 2 12c0 1.83.49 3.6 1.42 5.16L2 22l4.99-1.3A9.97 9.97 0 0 0 12.02 22C17.53 22 22 17.52 22 12S17.53 2 12.02 2Zm0 18.1a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-2.96.77.79-2.88-.19-.3A8.09 8.09 0 1 1 20.1 12a8.1 8.1 0 0 1-8.08 8.1Z"/></svg>
+                </a>
+              </div>
+              <div class="view-more">
+                <a class="view-more-button" href="#contact" data-i18n="hero_card_more">Kontak →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-meta">
+        <span class="dot"></span>
+        <span data-i18n="hero_meta">Software Developer &amp; UI/UX Designer, Indonesia</span>
+      </div>
+
+      <div class="status-chip">
+        <span class="status-dot"></span>
+        <span class="status-main" data-i18n="status_main">Vibe coding</span>
+        <span class="status-sep">·</span>
+        <span class="status-sub" data-i18n="status_sub">Masih role Engineering, bikin website pakai AI &amp; tangan sendiri</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="logostrip" aria-label="Tech stack">
+  <div class="hero-logo-row" id="heroLoop1">
+    <div class="hero-logo-track" id="heroLoopTrack1"></div>
+  </div>
+  <div class="hero-logo-row" id="heroLoop2">
+    <div class="hero-logo-track" id="heroLoopTrack2"></div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="about-bg" id="aboutEye" aria-hidden="true"></div>
+  <div class="about-scrim" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-i18n="about_title">Tentang</h2>
+      <span class="section-index">01</span>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p class="about-lead" data-i18n="about_lead">Saya mengerjakan sisi teknis dan sisi visual sebuah produk secara bersamaan.</p>
+        <p class="about-body" data-i18n="about_body">Latar belakang saya ada di pengembangan web dan desain antarmuka. Saya lebih suka bekerja di titik temu keduanya, tempat keputusan desain harus masuk akal secara teknis, dan kode harus melayani pengalaman yang ingin dibangun. Sebagian besar waktu saya dihabiskan menyusun struktur aplikasi, merapikan alur pengguna, dan menguji ulang detail kecil sampai terasa pas.</p>
+      </div>
+      <div class="fact-list">
+        <div class="fact-row">
+          <span class="label" data-i18n="fact_base_label">Berbasis di</span>
+          <span class="value" data-i18n="fact_base_value">Indonesia</span>
+        </div>
+        <div class="fact-row">
+          <span class="label" data-i18n="fact_focus_label">Fokus</span>
+          <span class="value" data-i18n="fact_focus_value">Pengembangan web &amp; desain produk</span>
+        </div>
+        <div class="fact-row">
+          <span class="label" data-i18n="fact_avail_label">Terbuka untuk</span>
+          <span class="value" data-i18n="fact_avail_value">Proyek lepas &amp; kolaborasi</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="location">
+  <div class="location-bg" id="locationPrism" aria-hidden="true"></div>
+  <div class="location-scrim" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-i18n="location_title">Lokasi</h2>
+      <span class="section-index">02</span>
+    </div>
+    <div class="location-grid">
+      <div>
+        <p class="location-body" data-i18n="location_body">Alif bekerja dari Makassar, kota pesisir di ujung selatan Sulawesi. Waktu kerja mengikuti WITA (UTC+8), dan sebagian besar kolaborasi berjalan lewat panggilan video serta pesan singkat, jarak bukan penghalang untuk proyek jarak jauh.</p>
+        <div class="location-facts">
+          <div class="fact-row">
+            <span class="label" data-i18n="location_city_label">Kota</span>
+            <span class="value" data-i18n="location_city_value">Makassar, Sulawesi Selatan</span>
+          </div>
+          <div class="fact-row">
+            <span class="label" data-i18n="location_tz_label">Zona waktu</span>
+            <span class="value" data-i18n="location_tz_value">WITA (UTC+8)</span>
+          </div>
+          <div class="fact-row">
+            <span class="label" data-i18n="location_collab_label">Kolaborasi</span>
+            <span class="value" data-i18n="location_collab_value">Sepenuhnya remote</span>
+          </div>
+        </div>
+      </div>
+      <div class="location-map">
+        <svg viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="120" cy="120" r="98" stroke="var(--line)" stroke-width="1"/>
+          <circle cx="120" cy="120" r="70" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 7"/>
+          <circle cx="120" cy="120" r="42" stroke="var(--line)" stroke-width="1" stroke-dasharray="2 5"/>
+          <g class="location-pulse">
+            <path d="M120 48c-25 0-45 19-45 44 0 32 45 82 45 82s45-50 45-82c0-25-20-44-45-44Z" stroke="var(--accent)" stroke-width="2.5"/>
+            <circle cx="120" cy="92" r="14" fill="var(--accent)"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-i18n="skills_title">Keahlian</h2>
+      <span class="section-index">03</span>
+    </div>
+    <div class="skills-grid">
+      <div class="skills-col">
+        <h3 data-i18n="skills_dev_title">Pengembangan</h3>
+
+        <div class="skill-row">
+          <p class="name">HTML, CSS &amp; JavaScript</p>
+          <p class="note" data-i18n="skill_dev_1">Dasar dari setiap antarmuka yang saya bangun.</p>
+        </div>
+        <div class="skill-row">
+          <p class="name">React</p>
+          <p class="note" data-i18n="skill_dev_2">Untuk aplikasi dengan state dan interaksi yang kompleks.</p>
+        </div>
+        <div class="skill-row">
+          <p class="name">Node.js</p>
+          <p class="note" data-i18n="skill_dev_3">Menyambungkan antarmuka ke logika dan data di belakangnya.</p>
+        </div>
+        <div class="skill-row">
+          <p class="name">Git &amp; version control</p>
+          <p class="note" data-i18n="skill_dev_4">Kerja yang rapi, terlacak, dan bisa diulang.</p>
+        </div>
+      </div>
+
+      <div class="skills-col">
+        <h3 data-i18n="skills_design_title">Desain</h3>
+
+        <div class="skill-row">
+          <p class="name">UI Design (Figma)</p>
+          <p class="note" data-i18n="skill_des_1">Merancang antarmuka sampai jelas, sebelum menulis kode.</p>
+        </div>
+        <div class="skill-row">
+          <p class="name" data-i18n="skill_des_2_name">Design system</p>
+          <p class="note" data-i18n="skill_des_2">Komponen yang konsisten di seluruh produk.</p>
+        </div>
+        <div class="skill-row">
+          <p class="name" data-i18n="skill_des_3_name">Prototyping</p>
+          <p class="note" data-i18n="skill_des_3">Menguji alur pengguna sebelum menjadi kode sungguhan.</p>
+        </div>
+        <div class="skill-row">
+          <p class="name" data-i18n="skill_des_4_name">Motion &amp; interaksi</p>
+          <p class="note" data-i18n="skill_des_4">Detail kecil yang membuat sebuah produk terasa hidup.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="macbook-showcase">
+      <div class="macbook-mini" id="macbookMini">
+        <div class="mb-topBord">
+          <div class="mb-display">
+            <div class="mb-load"></div>
+          </div>
+        </div>
+        <div class="mb-underBord">
+          <div class="mb-keybord">
+            <div class="mb-keybord-inner">
+              <div class="mb-touchbar"></div>
+              <ul class="mb-keyBox">
+                <li class="mb-key key01"></li><li class="mb-key key02"></li><li class="mb-key key03"></li>
+                <li class="mb-key key04"></li><li class="mb-key key05"></li><li class="mb-key key06"></li>
+                <li class="mb-key key07"></li><li class="mb-key key08"></li><li class="mb-key key09"></li>
+                <li class="mb-key key10"></li><li class="mb-key key11"></li><li class="mb-key key12"></li>
+                <li class="mb-key key13"></li>
+              </ul>
+              <ul class="mb-keyBox-under">
+                <li class="mb-key"></li><li class="mb-key"></li><li class="mb-key"></li><li class="mb-key"></li>
+                <li class="mb-key"></li><li class="mb-key key19"></li><li class="mb-key"></li><li class="mb-key"></li>
+                <li class="mb-key"></li><li class="mb-key"></li><li class="mb-key"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="quote-break">
+  <div class="wrap">
+    <span class="quote-mark" aria-hidden="true">"</span>
+    <p class="quote-text" data-i18n="quote_text">Waktu terus berjalan, sementara kita perlahan menjadi asing bagi hari-hari yang dulu terasa seperti rumah.</p>
+  </div>
+</div>
+
+<section id="work">
+  <div class="wrap">
+    <div class="work-props">
+      <div class="wave-hand-wrap" aria-hidden="true">
+        <div class="wave-hand">
+          <div class="wave-palm"></div>
+          <div class="wave-thumb"></div>
+          <div class="wave-finger"></div>
+          <div class="wave-finger"></div>
+          <div class="wave-finger"></div>
+          <div class="wave-finger"></div>
+        </div>
+      </div>
+
+      <div class="mini-watch-wrap" aria-hidden="true">
+        <div class="mini-watch">
+          <div class="frame">
+            <div class="watch-text">
+              <div id="workHours">00</div>
+              <div id="workMinutes">00</div>
+            </div>
+          </div>
+          <div class="sideBtn"></div>
+          <div class="powerBtn"></div>
+          <div class="dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-head">
+      <h2 data-i18n="work_title">Karya Terpilih</h2>
+      <span class="section-index">04</span>
+    </div>
+
+    <div class="orbit-showcase" id="orbitShowcase" aria-hidden="true">
+      <div class="orbit-stage" id="orbitStage">
+        <div class="orbit-wrapper">
+          <svg class="orbit-path" viewBox="0 0 1400 1400" aria-hidden="true">
+            <ellipse cx="700" cy="700" rx="340" ry="80"/>
+          </svg>
+          <div class="orbit-items" id="orbitItems"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-list">
+      <a class="work-row" href="#contact">
+        <span class="work-num">01</span>
+        <span class="work-main">
+          <h3 data-i18n="work_1_title">Aplikasi Web Internal</h3>
+          <p data-i18n="work_1_desc">Perancangan ulang alur kerja tim dan antarmuka dashboard, dari riset sampai implementasi.</p>
+        </span>
+        <span class="work-tags">
+          <span>React</span><span>Figma</span>
+        </span>
+      </a>
+
+      <a class="work-row" href="#contact">
+        <span class="work-num">02</span>
+        <span class="work-main">
+          <h3 data-i18n="work_2_title">Sistem Desain Produk</h3>
+          <p data-i18n="work_2_desc">Menyusun komponen dan pedoman antarmuka yang dipakai lintas tim produk.</p>
+        </span>
+        <span class="work-tags">
+          <span>Design System</span><span>UI</span>
+        </span>
+      </a>
+
+      <a class="work-row" href="#contact">
+        <span class="work-num">03</span>
+        <span class="work-main">
+          <h3 data-i18n="work_3_title">Situs Interaktif</h3>
+          <p data-i18n="work_3_desc">Situs pemasaran dengan animasi ringan yang tetap cepat diakses di perangkat mobile.</p>
+        </span>
+        <span class="work-tags">
+          <span>JavaScript</span><span>CSS</span>
+        </span>
+      </a>
+    </div>
+
+    <p class="work-note" data-i18n="work_note">Tempat untuk tiga proyek, ganti dengan studi kasus asli, tautan, dan tangkapan layar Anda.</p>
+  </div>
+</section>
+
+<section id="hobby">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-i18n="hobby_title">Di Luar Kerjaan</h2>
+      <span class="section-index">05</span>
+    </div>
+
+    <div class="hobby-list">
+      <div class="hobby-row">
+        <span class="hobby-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="7.5" width="19" height="10" rx="4"/><path d="M7.5 12.5h-3M6 11v3"/><circle cx="15.5" cy="10.8" r="0.9" fill="currentColor" stroke="none"/><circle cx="17.8" cy="13.2" r="0.9" fill="currentColor" stroke="none"/></svg></span>
+        <div class="hobby-text">
+          <p class="hobby-name" data-i18n="hobby_1_title">Main Game</p>
+          <p class="hobby-desc" data-i18n="hobby_1_desc">Dari yang santai sampai yang bikin emosi, cara paling ampuh buat rehat abis mikir kode seharian.</p>
+        </div>
+      </div>
+
+      <div class="hobby-row">
+        <span class="hobby-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.6h16a1 1 0 0 1 1 1v8.8a1 1 0 0 1-1 1H8.4L4 20.4V6.6a1 1 0 0 1 1-1Z"/><path d="M8 10h5M8 13h7"/></svg></span>
+        <div class="hobby-text">
+          <p class="hobby-name" data-i18n="hobby_2_title">Jualan-Beli via WhatsApp</p>
+          <p class="hobby-desc" data-i18n="hobby_2_desc">Nyambi dagang lewat chat, nego, closing, kirim, semua kelar tanpa keluar dari satu aplikasi.</p>
+        </div>
+      </div>
+
+      <div class="hobby-row">
+        <span class="hobby-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4 3 12l5 8M16 4l5 8-5 8"/></svg></span>
+        <div class="hobby-text">
+          <p class="hobby-name" data-i18n="hobby_3_title">Ngulik Frontend</p>
+          <p class="hobby-desc" data-i18n="hobby_3_desc">Eksperimen animasi, layout, sampai detail kecil biar sebuah website enak dipandang dan dipakai.</p>
+        </div>
+      </div>
+
+      <div class="hobby-row">
+        <span class="hobby-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.2"/><path d="M10 19h4"/></svg></span>
+        <div class="hobby-text">
+          <p class="hobby-name" data-i18n="hobby_4_title">Bikin APK Langsung dari HP</p>
+          <p class="hobby-desc" data-i18n="hobby_4_desc">Pakai CodeAssist buat ngoding aplikasi Android tanpa nunggu buka laptop dulu.</p>
+        </div>
+      </div>
+
+      <div class="hobby-row">
+        <span class="hobby-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3.5" width="19" height="17" rx="2"/><path d="M6 9l3.5 3L6 15M12.5 15h5.5"/></svg></span>
+        <div class="hobby-text">
+          <p class="hobby-name" data-i18n="hobby_5_title">Ngoprek Terminal &amp; Termux</p>
+          <p class="hobby-desc" data-i18n="hobby_5_desc">Main perintah di CLI, ngerasain vibe Linux langsung dari HP Android lewat Termux.</p>
+        </div>
+      </div>
+
+      <div class="hobby-row">
+        <span class="hobby-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="6" cy="12" r="1"/><circle cx="18" cy="12" r="1"/></svg></span>
+        <div class="hobby-text">
+          <p class="hobby-name" data-i18n="hobby_6_title">Dan Lainnya...</p>
+          <p class="hobby-desc" data-i18n="hobby_6_desc">Selebihnya nyoba-nyoba hal baru yang bikin penasaran, gak melulu soal layar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 data-i18n="faq_title">Pertanyaan Umum</h2>
+      <span class="section-index">06</span>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span class="faq-num">01</span>
+          <span class="faq-q-text" data-i18n="faq_1_q">Siapa Alip/Alrect?</span>
+          <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p data-i18n="faq_1_a">Alip/Alrect adalah developer yang fokus pada pengembangan aplikasi Android, website, UI/UX, dan berbagai project eksperimen teknologi, dan itu pun gw 🤭.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span class="faq-num">02</span>
+          <span class="faq-q-text" data-i18n="faq_2_q">Bisa bikin aplikasi Android?</span>
+          <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p data-i18n="faq_2_a">Bisa. Project Android dapat dibuat menggunakan Java/XML maupun teknologi Android lainnya sesuai kebutuhan project.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span class="faq-num">03</span>
+          <span class="faq-q-text" data-i18n="faq_3_q">Bisa bikin website?</span>
+          <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p data-i18n="faq_3_a">Bisa. Mulai dari website sederhana sampai website dengan fitur interaktif menggunakan HTML, CSS, JavaScript, dan backend/API.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span class="faq-num">04</span>
+          <span class="faq-q-text" data-i18n="faq_4_q">Bisa menerima project atau jasa development?</span>
+          <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p data-i18n="faq_4_a">Bisa. Untuk project tertentu, detail kebutuhan dan scope pekerjaan dapat dibicarakan terlebih dahulu.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false">
+          <span class="faq-num">05</span>
+          <span class="faq-q-text" data-i18n="faq_5_q">Teknologi apa yang biasa digunakan?</span>
+          <svg class="faq-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p data-i18n="faq_5_a">Beberapa teknologi yang digunakan antara lain Java, XML, HTML, CSS, JavaScript, API, database, dan berbagai tools development lainnya.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="contact-solar-wrap" aria-hidden="true">
+    <div class="contact-solar">
+      <i class="mercury"></i>
+      <i class="venus"></i>
+      <i class="earth"></i>
+      <i class="mars"></i>
+      <i class="belt"></i>
+      <i class="jupiter"></i>
+      <i class="saturn"></i>
+      <i class="uranus"></i>
+      <i class="neptune"></i>
+    </div>
+  </div>
+
+  <div class="wrap contact-inner">
+    <p class="contact-kicker" data-i18n="contact_kicker">Ada proyek yang ingin didiskusikan?</p>
+    <h2 class="contact-headline" data-i18n="contact_headline">Mari membangun sesuatu.</h2>
+
+    <a class="cta-btn magnetic" id="waButton" href="https://wa.me/6282192401340" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.29-.15-1.7-.84-1.96-.93-.26-.1-.46-.15-.65.14-.2.3-.75.94-.92 1.13-.17.2-.34.22-.63.08-.29-.15-1.23-.46-2.35-1.47-.87-.78-1.45-1.74-1.63-2.03-.17-.3-.02-.46.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.51-.08-.15-.65-1.58-.9-2.16-.24-.58-.48-.5-.65-.5h-.56c-.2 0-.51.07-.78.37-.26.3-1.02 1-1.02 2.43s1.05 2.82 1.19 3.01c.15.2 2.07 3.17 5.03 4.44.7.3 1.25.48 1.68.62.7.22 1.34.19 1.84.12.56-.08 1.7-.7 1.94-1.37.24-.68.24-1.26.17-1.38-.07-.12-.26-.2-.55-.34z"/><path d="M12.02 2C6.5 2 2 6.48 2 12c0 1.83.49 3.6 1.42 5.16L2 22l4.99-1.3A9.97 9.97 0 0 0 12.02 22C17.53 22 22 17.52 22 12S17.53 2 12.02 2Zm0 18.1a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-2.96.77.79-2.88-.19-.3A8.09 8.09 0 1 1 20.1 12a8.1 8.1 0 0 1-8.08 8.1Z"/></svg>
+      <span data-i18n="contact_cta">Chat lewat WhatsApp</span>
+    </a>
+
+    <p class="contact-number">
+      <span data-i18n="contact_number_label">Atau simpan nomornya:</span>
+      +62 821-9240-1340 ,
+      <button type="button" id="copyNumber" data-i18n="contact_copy">salin</button>
+    </p>
+
+    <div class="social-row">
+      <a class="social-link" href="https://github.com/alrxf-dev" target="_blank" rel="noopener" aria-label="GitHub">
+        <div class="social-ring"></div>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.46-1.19-1.11-1.51-1.11-1.51-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.57 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 2.5-.35c.85 0 1.71.12 2.5.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg>
+        <div class="social-pulse"></div>
+        <span class="social-label">GitHub</span>
+      </a>
+      <a class="social-link" href="https://t.me/XploterAlrect" target="_blank" rel="noopener" aria-label="Telegram">
+        <div class="social-ring"></div>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.6 20c-.25 1.1-.9 1.37-1.83.86l-5.06-3.73-2.44 2.35c-.27.27-.5.5-1.02.5l.36-5.16 9.4-8.5c.41-.36-.09-.56-.63-.2L6.7 12.62l-5.03-1.57c-1.1-.34-1.12-1.1.23-1.63L20.5 2.9c.91-.34 1.71.2 1.4 1.4Z"/></svg>
+        <div class="social-pulse"></div>
+        <span class="social-label">Telegram</span>
+      </a>
+      <a class="social-link" href="https://wa.me/6282192401340" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <div class="social-ring"></div>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.29-.15-1.7-.84-1.96-.93-.26-.1-.46-.15-.65.14-.2.3-.75.94-.92 1.13-.17.2-.34.22-.63.08-.29-.15-1.23-.46-2.35-1.47-.87-.78-1.45-1.74-1.63-2.03-.17-.3-.02-.46.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.51-.08-.15-.65-1.58-.9-2.16-.24-.58-.48-.5-.65-.5h-.56c-.2 0-.51.07-.78.37-.26.3-1.02 1-1.02 2.43s1.05 2.82 1.19 3.01c.15.2 2.07 3.17 5.03 4.44.7.3 1.25.48 1.68.62.7.22 1.34.19 1.84.12.56-.08 1.7-.7 1.94-1.37.24-.68.24-1.26.17-1.38-.07-.12-.26-.2-.55-.34z"/><path d="M12.02 2C6.5 2 2 6.48 2 12c0 1.83.49 3.6 1.42 5.16L2 22l4.99-1.3A9.97 9.97 0 0 0 12.02 22C17.53 22 22 17.52 22 12S17.53 2 12.02 2Zm0 18.1a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-2.96.77.79-2.88-.19-.3A8.09 8.09 0 1 1 20.1 12a8.1 8.1 0 0 1-8.08 8.1Z"/></svg>
+        <div class="social-pulse"></div>
+        <span class="social-label">WhatsApp</span>
+      </a>
+      <a class="social-link" href="https://discord.com/users/alif_slayer" target="_blank" rel="noopener" aria-label="Discord">
+        <div class="social-ring"></div>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.32 5.37a18.6 18.6 0 0 0-4.6-1.43.07.07 0 0 0-.08.04c-.2.36-.42.82-.57 1.19a17.2 17.2 0 0 0-5.14 0 8 8 0 0 0-.58-1.19.07.07 0 0 0-.08-.04c-1.6.32-3.14.8-4.6 1.43a.06.06 0 0 0-.03.03C1.6 9.6.9 13.7 1.24 17.76a.08.08 0 0 0 .03.05 18.7 18.7 0 0 0 5.63 2.85.07.07 0 0 0 .08-.03c.43-.6.82-1.23 1.16-1.9a.07.07 0 0 0-.04-.1 12.3 12.3 0 0 1-1.76-.84.07.07 0 0 1 0-.12c.12-.09.24-.18.35-.27a.07.07 0 0 1 .07-.01c3.7 1.69 7.7 1.69 11.36 0a.07.07 0 0 1 .07.01c.12.09.23.18.35.27a.07.07 0 0 1 0 .12c-.56.33-1.15.6-1.76.84a.07.07 0 0 0-.04.1c.35.67.74 1.3 1.16 1.9a.07.07 0 0 0 .08.03 18.6 18.6 0 0 0 5.64-2.85.07.07 0 0 0 .03-.05c.4-4.7-.67-8.76-2.83-12.36a.06.06 0 0 0-.03-.03ZM8.68 15.25c-1.11 0-2.02-1.02-2.02-2.27 0-1.25.9-2.27 2.02-2.27 1.13 0 2.03 1.03 2.02 2.27 0 1.25-.9 2.27-2.02 2.27Zm6.65 0c-1.11 0-2.02-1.02-2.02-2.27 0-1.25.9-2.27 2.02-2.27 1.13 0 2.03 1.03 2.02 2.27 0 1.25-.89 2.27-2.02 2.27Z"/></svg>
+        <div class="social-pulse"></div>
+        <span class="social-label">Discord</span>
+      </a>
+      <a class="social-link" href="https://gitlab.com/alrectofficial" target="_blank" rel="noopener" aria-label="GitLab">
+        <div class="social-ring"></div>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.42 15.5 10.6H8.5L12 21.42Z"/><path d="M12 21.42 8.5 10.6H2.9L12 21.42Z" opacity="0.75"/><path d="M12 21.42 15.5 10.6h5.6L12 21.42Z" opacity="0.75"/><path d="m2.9 10.6 1.9-5.86a.55.55 0 0 1 1.05 0l1.9 5.86H2.9Z" opacity="0.5"/><path d="m21.1 10.6-1.9-5.86a.55.55 0 0 0-1.05 0l-1.9 5.86h4.85Z" opacity="0.5"/></svg>
+        <div class="social-pulse"></div>
+        <span class="social-label">GitLab</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>Alif Rezky © <span id="year">2026</span></span>
+    <a href="#top" data-i18n="footer_top">Kembali ke atas</a>
+  </div>
+</footer>
+
+<div class="dock-outer">
+  <nav class="dock-panel" id="dock" aria-label="Navigasi cepat">
+
+    <a href="#top" class="dock-item active" aria-labelledby="dockLabelHome">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.2 12 4l8 7.2"/><path d="M6 9.8V19a1 1 0 0 0 1 1h3v-6h4v6h3a1 1 0 0 0 1-1V9.8"/></svg>
+      <span class="dock-label" id="dockLabelHome" data-i18n="nav_home">Beranda</span>
+    </a>
+
+    <a href="#about" class="dock-item" aria-labelledby="dockLabelAbout">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.2" r="3.3"/><path d="M5.2 19.5c0-3.9 3-6.8 6.8-6.8s6.8 2.9 6.8 6.8"/></svg>
+      <span class="dock-label" id="dockLabelAbout" data-i18n="nav_about">Tentang</span>
+    </a>
+
+    <a href="#location" class="dock-item" aria-labelledby="dockLabelLocation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2c-3 0-5.4 2.3-5.4 5.3 0 3.8 5.4 9.5 5.4 9.5s5.4-5.7 5.4-9.5c0-3-2.4-5.3-5.4-5.3Z"/><circle cx="12" cy="8.4" r="1.9"/></svg>
+      <span class="dock-label" id="dockLabelLocation" data-i18n="nav_location">Lokasi</span>
+    </a>
+
+    <a href="#skills" class="dock-item" aria-labelledby="dockLabelSkills">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4.5" width="16" height="3.3" rx="1.2"/><rect x="4" y="10.3" width="16" height="3.3" rx="1.2"/><rect x="4" y="16.1" width="16" height="3.3" rx="1.2"/></svg>
+      <span class="dock-label" id="dockLabelSkills" data-i18n="nav_skills">Keahlian</span>
+    </a>
+
+    <a href="#work" class="dock-item" aria-labelledby="dockLabelWork">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.2" y="7.2" width="17.6" height="11.6" rx="2"/><path d="M8.4 7.2V5.6a2 2 0 0 1 2-2h3.2a2 2 0 0 1 2 2v1.6"/><path d="M3.2 12.4h17.6"/></svg>
+      <span class="dock-label" id="dockLabelWork" data-i18n="nav_work">Karya</span>
+    </a>
+
+    <a href="#hobby" class="dock-item" aria-labelledby="dockLabelHobby">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.2-4.4-9.6-9A5.2 5.2 0 0 1 12 6.4 5.2 5.2 0 0 1 21.6 11c-2.4 4.6-9.6 9-9.6 9Z"/></svg>
+      <span class="dock-label" id="dockLabelHobby" data-i18n="nav_hobby">Hobi</span>
+    </a>
+
+    <a href="#faq" class="dock-item" aria-labelledby="dockLabelFaq">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M9.3 9.3a2.7 2.7 0 1 1 3.8 2.5c-.7.3-1.1 1-1.1 1.7v.3"/><circle cx="12" cy="16.6" r="0.15" fill="currentColor"/></svg>
+      <span class="dock-label" id="dockLabelFaq" data-i18n="nav_faq">FAQ</span>
+    </a>
+
+    <a href="#contact" class="dock-item" aria-labelledby="dockLabelContact">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.6h16a1 1 0 0 1 1 1v8.8a1 1 0 0 1-1 1H8.4L4 20.4V6.6a1 1 0 0 1 1-1Z"/></svg>
+      <span class="dock-label" id="dockLabelContact" data-i18n="nav_contact">Kontak</span>
+    </a>
+
+  </nav>
+</div>
+<script src="js/security.js"></script>
+<script src="js/loading-screen.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/particle-text.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/hero.js"></script>
+<script src="js/widgets.js"></script>
+<script src="js/faq.js"></script>
+<script src="js/search.js"></script>
+<script src="js/contact.js"></script>
+<script type="module" src="js/effects/eye-fire.js"></script>
+<script type="module" src="js/effects/prismatic.js"></script>
+</body>
+</html>
